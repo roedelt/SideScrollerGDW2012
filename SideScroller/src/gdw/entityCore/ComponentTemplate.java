@@ -52,6 +52,26 @@ public abstract class ComponentTemplate {
 			return defaultValue;
 		}
 	}
+
+	/**
+	 *  @ author Thomas Rödel
+	 *
+	 * Get boolean parameter.
+	 * 
+	 * @param name The name of the property.
+	 * @param defaultValue Value to return, if the property can not be found.
+	 */
+	public boolean getBooleanParam(String name, boolean defaultValue){
+		if(params.containsKey(name))
+		{
+			// no need for exceptions handling, as everthing else than "true" (ignore case) will return false
+			return Boolean.parseBoolean(params.get(name));
+		}
+		else
+		{
+			return defaultValue;
+		}
+	}
 	public EntityReference getEntityReferenceParam(String name){
 		if(params.containsKey(name)){
 			String val = params.get(name).trim();
